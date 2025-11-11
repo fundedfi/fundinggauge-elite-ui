@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+  <rect width="100%" height="100%" fill="#000"/>
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+        font-size="160" font-family="Orbitron, system-ui, sans-serif" fill="#00E5FF">≡</text>
+</svg>

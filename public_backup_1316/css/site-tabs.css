@@ -1,0 +1,56 @@
+:root{
+  --tab-bg: rgba(255,255,255,.04);
+  --tab-br: rgba(0,229,255,.28);
+  --tab-active: var(--neon-green, #00ff99);
+}
+.tabbar{
+  position: sticky; top:64px; z-index:999;
+  display:flex; gap:10px; justify-content:center;
+  padding:10px 14px; margin:0 auto; max-width:1100px;
+  background: var(--tab-bg); backdrop-filter: blur(16px);
+  border:1px solid var(--tab-br); border-radius:14px;
+}
+.tabbar a{
+  font: 600 0.92rem/1 'Space Grotesk',system-ui,sans-serif;
+  letter-spacing:.06em; text-transform:uppercase;
+  color:#fff; text-decoration:none;
+  padding:10px 14px; border-radius:10px;
+  border:1px solid transparent; transition:.18s ease;
+}
+.tabbar a:hover{ border-color: var(--tab-br); transform:translateY(-1px) }
+.tabbar a.active{
+  color:#000; background:var(--tab-active);
+  box-shadow:0 10px 28px rgba(0,255,153,.28);
+}
+
+/* Section framing */
+.section-wrap{ padding:96px 0; position:relative; z-index:2 }
+.section-wrap .section-title{
+  font-family:'Orbitron',sans-serif; text-align:center;
+  font-weight:900; letter-spacing:.12em; text-transform:uppercase;
+  font-size:clamp(1.6rem,3.4vw,2.4rem); margin:0 0 22px;
+  background:linear-gradient(135deg,#e8e8e8 0%,#fff 50%,#666 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+/* Matrix demo grid */
+.matrix-grid{
+  max-width:1100px; margin:22px auto 0; padding:0 24px;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px;
+}
+.card{
+  background:rgba(0,255,153,.05); border:1px solid var(--tab-br);
+  border-radius:16px; padding:18px; transition:.2s ease; text-align:center;
+}
+.card:hover{ transform:translateY(-4px); box-shadow:0 18px 38px rgba(0,255,153,.18) }
+.card .h{ font:800 0.95rem/1.2 'Orbitron',sans-serif; letter-spacing:.1em; margin-bottom:8px }
+.card .v{ font:700 1.8rem/1 'Orbitron',sans-serif; color:var(--neon-green,#00ff99) }
+
+/* Anchor offset (account for sticky bar) */
+.anchor-offset{ position:relative; scroll-margin-top:110px }
+
+/* Mobile */
+@media (max-width: 768px){
+  .tabbar{ top:56px; gap:6px; padding:8px 10px }
+  .tabbar a{ padding:8px 10px; font-size:.84rem }
+  .section-wrap{ padding:72px 0 }
+}

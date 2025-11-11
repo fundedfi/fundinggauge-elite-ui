@@ -1,0 +1,27 @@
+{
+  "name": "fundinggauge-elite-ui",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "echo skip"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.24",
+    "next": "14",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/node": "24.9.2",
+    "@types/react": "19.2.2",
+    "autoprefixer": "^10.4.21",
+    "lucide-react": "^0.548.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.16",
+    "typescript": "5.9.3"
+  },
+  "packageManager": "pnpm@10.21.0+sha512.da3337267e400fdd3d479a6c68079ac6db01d8ca4f67572083e722775a796788a7a9956613749e000fac20d424b594f7a791a5f4e2e13581c5ef947f26968a40"
+}

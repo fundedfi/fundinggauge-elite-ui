@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FUNDINGGAUG<span class="accent">≡</span>™ | AI-Powered Funding Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+:root{--accent:#00ff99;--accent-2:#4fc3f7;--chrome-light:#e8e8e8;--chrome-dark:#666;--deep:#000;--glass:rgba(255,255,255,.03)}
+body[data-theme="green"]{--accent:#00ff99}
+body[data-theme="blue"]{--accent:#4fc3f7}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{background:#000;color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;inset:0;background-image:
+repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.03) 2px,rgba(255,255,255,.03) 4px),
+repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(255,255,255,.03) 2px,rgba(255,255,255,.03) 4px);
+opacity:.6;pointer-events:none;z-index:1}
+nav{position:fixed;top:0;width:100%;z-index:1000;background:var(--glass);backdrop-filter:blur(20px);border-bottom:1px solid color-mix(in oklab,var(--accent) 20%, transparent);padding:14px 0}
+.nav-container{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo-nav{font-family:'Orbitron',monospace;font-size:1.6rem;font-weight:900;background:linear-gradient(135deg,var(--chrome-light),#fff 50%,var(--chrome-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 24px rgba(255,255,255,.45)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:#fff;text-decoration:none;font-weight:600;text-transform:uppercase;letter-spacing:1px;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.theme-toggle{border:1px solid color-mix(in oklab,var(--accent) 35%, transparent);background:transparent;border-radius:999px;padding:8px 14px;color:var(--accent);font-family:'Orbitron',monospace;font-weight:800;cursor:pointer}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;z-index:2;padding-top:64px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(circle at center, color-mix(in oklab,var(--accent) 12%, transparent) 0%, transparent 55%);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.1);opacity:.8}}
+.hero-content{text-align:center;z-index:2;padding:0 20px}
+.hero h1{font-family:'Orbitron',monospace;font-size:clamp(3rem,8vw,6rem);font-weight:900;
+background:linear-gradient(135deg,var(--chrome-light),#fff 50%,var(--chrome-dark));
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;margin-bottom:20px;
+text-shadow:0 0 50px rgba(255,255,255,.5)}
+.hero-subtitle{font-size:clamp(1.1rem,3vw,1.6rem);color:var(--accent);margin-bottom:36px;text-shadow:0 0 24px color-mix(in oklab,var(--accent) 70%, transparent)}
+.ignition-container{margin:24px auto;display:flex;flex-direction:column;align-items:center;gap:18px}
+.ignition-button{width:150px;height:150px;border-radius:50%;background:linear-gradient(135deg,#1a1a1a,#333 50%,#1a1a1a);
+border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;
+transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 0 50px color-mix(in oklab,var(--accent) 30%, transparent), inset 0 0 50px color-mix(in oklab,var(--accent) 18%, transparent)}
+.ignition-button:hover{transform:scale(1.05);box-shadow:0 0 80px color-mix(in oklab,var(--accent) 55%, transparent), inset 0 0 80px color-mix(in oklab,var(--accent) 26%, transparent)}
+.ignition-button.activated{animation:flash .6s ease-out}
+@keyframes flash{0%{box-shadow:0 0 50px color-mix(in oklab,var(--accent) 30%, transparent)}50%{box-shadow:0 0 220px var(--accent),0 0 320px color-mix(in oklab,var(--accent) 55%, transparent)}100%{box-shadow:0 0 50px color-mix(in oklab,var(--accent) 30%, transparent)}}
+.pulse-ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);animation:ring 2s cubic-bezier(.4,0,.6,1) infinite}
+@keyframes ring{0%{transform:scale(1);opacity:1}100%{transform:scale(1.5);opacity:0}}
+.ignition-text{font-family:'Orbitron',monospace;font-size:18px;font-weight:900;color:var(--accent);letter-spacing:2px}
+
+.metrics{background:var(--glass);backdrop-filter:blur(20px);border-top:1px solid color-mix(in oklab,var(--accent) 20%, transparent);border-bottom:1px solid color-mix(in oklab,var(--accent) 20%, transparent);padding:80px 0;position:relative;z-index:2}
+.metrics-grid{max-width:1400px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+.metric-card{background:color-mix(in oklab,var(--accent) 6%, transparent);border:1px solid color-mix(in oklab,var(--accent) 22%, transparent);border-radius:20px;padding:40px;text-align:center;transition:.3s;position:relative;overflow:hidden}
+.metric-card::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,color-mix(in oklab,var(--accent) 12%, transparent) 0%,transparent 70%);transform:scale(0);transition:transform .5s ease-out}
+.metric-card:hover::before{transform:scale(1)}
+.metric-card:hover{transform:translateY(-10px);border-color:var(--accent);box-shadow:0 20px 40px color-mix(in oklab,var(--accent) 30%, transparent)}
+.metric-number{font-family:'Orbitron',monospace;font-size:3.5rem;font-weight:900;color:var(--accent);text-shadow:0 0 30px color-mix(in oklab,var(--accent) 70%, transparent);margin-bottom:10px}
+.metric-label{font-size:1.1rem;text-transform:uppercase;letter-spacing:2px}
+
+.video-section{padding:120px 0;position:relative;z-index:2}
+.video-container{max-width:1200px;margin:0 auto;padding:0 40px}
+.section-title{font-family:'Orbitron',monospace;font-size:3rem;font-weight:900;text-align:center;margin-bottom:60px;
+background:linear-gradient(135deg,var(--chrome-light),#fff 50%,var(--chrome-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase}
+.video-player{position:relative;padding-bottom:56.25%;background:var(--glass);border:2px solid var(--accent);border-radius:20px;overflow:hidden;box-shadow:0 0 30px color-mix(in oklab,var(--accent) 60%, transparent)}
+.video-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at center,color-mix(in oklab,var(--accent) 12%, transparent) 0%,transparent 50%);cursor:pointer}
+.play-button{width:100px;height:100px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.3s}
+.play-button:hover{transform:scale(1.1);box-shadow:0 0 50px var(--accent)}
+.play-button i{font-size:2.5rem;color:#000;margin-left:5px}
+
+.gauge-section{padding:120px 0;background:var(--glass);backdrop-filter:blur(20px);border-top:1px solid color-mix(in oklab,var(--accent) 20%, transparent);border-bottom:1px solid color-mix(in oklab,var(--accent) 20%, transparent);position:relative;z-index:2}
+.gauge-wrapper{max-width:800px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;gap:60px}
+.lambo-gauge{width:400px;height:400px;position:relative;background:radial-gradient(circle at center,color-mix(in oklab,var(--accent) 8%, transparent) 0%,transparent 50%);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.gauge-outer{width:100%;height:100%;border-radius:50%;background:conic-gradient(from -90deg,transparent 0deg,var(--accent) 0deg,var(--accent) var(--gauge,0deg),rgba(255,255,255,.1) var(--gauge,0deg),rgba(255,255,255,.1) 270deg,transparent 270deg);position:relative;filter:drop-shadow(0 0 26px color-mix(in oklab,var(--accent) 70%, transparent));animation:glo 2s ease-in-out infinite alternate}
+@keyframes glo{from{filter:drop-shadow(0 0 18px color-mix(in oklab,var(--accent) 65%, transparent))}to{filter:drop-shadow(0 0 38px color-mix(in oklab,var(--accent) 85%, transparent))}}
+.gauge-inner{position:absolute;inset:20px;background:#000;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid color-mix(in oklab,var(--accent) 35%, transparent)}
+.gauge-score{font-family:'Orbitron',monospace;font-size:5rem;font-weight:900;color:var(--accent);text-shadow:0 0 30px color-mix(in oklab,var(--accent) 70%, transparent);line-height:1}
+.gauge-label{font-family:'Orbitron',monospace;font-size:1.1rem;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:3px;margin-top:10px}
+
+.calculator-form{background:color-mix(in oklab,var(--accent) 6%, transparent);border:1px solid color-mix(in oklab,var(--accent) 22%, transparent);border-radius:20px;padding:40px;width:100%;max-width:500px}
+.form-title{font-family:'Orbitron',monospace;font-size:1.6rem;font-weight:700;text-align:center;margin-bottom:26px;color:var(--accent);text-transform:uppercase}
+.form-group{margin-bottom:22px}.form-group label{display:block;margin-bottom:10px;font-weight:600;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:1px;font-size:.9rem}
+.form-control{width:100%;padding:15px 20px;background:rgba(255,255,255,.05);border:1px solid color-mix(in oklab,var(--accent) 30%, transparent);border-radius:10px;color:#fff;font-size:1rem;transition:.3s}
+.form-control:focus{outline:none;border-color:var(--accent);box-shadow:0 0 20px color-mix(in oklab,var(--accent) 30%, transparent);background:rgba(255,255,255,.08)}
+.form-control option{background:#000;color:#fff}
+.form-submit{width:100%;padding:18px;background:linear-gradient(135deg,var(--accent),color-mix(in oklab,var(--accent) 75%, #00cc7a));border:none;border-radius:10px;font-family:'Orbitron',monospace;font-size:1.1rem;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.form-submit::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:rotate(45deg) translate(-100%,-100%);transition:.6s}
+.form-submit:hover::before{transform:rotate(45deg) translate(100%,100%)}.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px color-mix(in oklab,var(--accent) 45%, transparent)}
+
+.partners{padding:120px 0;position:relative;z-index:2}
+.partners-grid{max-width:1400px;margin:60px auto 0;padding:0 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px}
+.partner-card{background:var(--glass);backdrop-filter:blur(10px);border:1px solid color-mix(in oklab,var(--accent) 22%, transparent);border-radius:20px;padding:40px;text-align:center;transition:.3s}
+.partner-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 10px 30px color-mix(in oklab,var(--accent) 25%, transparent)}
+.partner-logo{width:80px;height:80px;margin:0 auto 20px;background:color-mix(in oklab,var(--accent) 12%, transparent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--accent)}
+.partner-name{font-size:1.2rem;font-weight:700;margin-bottom:10px}
+.partner-revenue{font-family:'Orbitron',monospace;font-size:2rem;color:var(--accent);font-weight:900}
+
+.final-cta{padding:120px 0;background:var(--glass);backdrop-filter:blur(20px);border-top:1px solid color-mix(in oklab,var(--accent) 20%, transparent);text-align:center;position:relative;z-index:2}
+.cta-content{max-width:800px;margin:0 auto;padding:0 40px}
+.cta-title{font-family:'Orbitron',monospace;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:24px;background:linear-gradient(135deg,var(--chrome-light),#fff 50%,var(--chrome-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cta-description{font-size:1.2rem;color:rgba(255,255,255,.82);margin-bottom:32px;line-height:1.6}
+.cta-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.btn-primary,.btn-secondary{padding:16px 36px;border-radius:50px;font-family:'Orbitron',monospace;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;text-decoration:none;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--accent),color-mix(in oklab,var(--accent) 75%, #00cc7a));color:#000}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px color-mix(in oklab,var(--accent) 45%, transparent)}
+.btn-secondary{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+.btn-secondary:hover{background:var(--accent);color:#000;transform:translateY(-2px);box-shadow:0 10px 30px color-mix(in oklab,var(--accent) 45%, transparent)}
+
+footer{padding:60px 0 40px;background:#000;border-top:1px solid color-mix(in oklab,var(--accent) 20%, transparent);position:relative;z-index:2}
+.footer-content{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:40px}
+.footer-logo{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:900;background:linear-gradient(135deg,var(--chrome-light),#fff 50%,var(--chrome-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-links{display:flex;gap:28px;list-style:none}
+.footer-links a{color:rgba(255,255,255,.75);text-decoration:none;text-transform:uppercase;font-weight:600;letter-spacing:1px}
+.footer-links a:hover{color:var(--accent)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .lambo-gauge{width:300px;height:300px}
+  .gauge-score{font-size:3.8rem}
+  .cta-buttons{flex-direction:column;width:100%}
+  .btn-primary,.btn-secondary{width:100%}
+  .footer-content{flex-direction:column;text-align:center}
+}
+.ignition-container{display:none!important}
+
+/* === BARS ANIM (blue) === */
+.logo .bars{color:#00E5FF;filter:drop-shadow(0 0 10px rgba(0,229,255,.65));text-shadow:0 0 10px rgba(0,229,255,.35),0 0 24px rgba(0,229,255,.35),0 0 52px rgba(0,229,255,.35);animation:bars-pulse 2.4s ease-in-out infinite}
+ bars-pulse{0%,100%{text-shadow:0 0 8px rgba(0,229,255,.35),0 0 24px rgba(0,229,255,.35)}50%{text-shadow:0 0 14px rgba(0,229,255,.35),0 0 42px rgba(0,229,255,.35),0 0 80px rgba(0,229,255,.35)}}
+
+/* === BARS ANIM (blue) === */
+.logo .bars{color:#00E5FF;filter:drop-shadow(0 0 10px rgba(0,229,255,.65));text-shadow:0 0 10px rgba(0,229,255,.35),0 0 24px rgba(0,229,255,.35),0 0 52px rgba(0,229,255,.35);animation:bars-pulse 2.4s ease-in-out infinite}
+ bars-pulse{0%,100%{text-shadow:0 0 8px rgba(0,229,255,.35),0 0 24px rgba(0,229,255,.35)}50%{text-shadow:0 0 14px rgba(0,229,255,.35),0 0 42px rgba(0,229,255,.35),0 0 80px rgba(0,229,255,.35)}}
+</style>
+  <link rel="stylesheet" href="/css/site-tabs.css">
+  <link rel="stylesheet" href="/css/ignite.css">
+  <link rel="stylesheet" href="/css/site-tabs.css">
+  <link rel="stylesheet" href="/css/polish.css">
+  <link rel="stylesheet" href="/css/frank.css">
+</head><body data-theme="green">
+<div id="fg-sanity" style="position:fixed;top:10px;left:10px;padding:8px 12px;background:#111;border:1px solid #0ff;color:#0ff;font:600 12px/1.2 sans-serif;z-index:9999">FG Sanity ✓</div>
+<nav><div class="nav-container">
+  <div class="logo-nav">FUNDINGGAUG<span class="accent">≡</span>™</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li><li><a href="#metrics">Metrics</a></li>
+    <li><a href="#calculator">Calculator</a></li><li><a href="#partners">Partners</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+  <button id="themeBtn" class="theme-toggle">Mode: Blue</button>
+</div></nav>
+
+<div class="tabbar">
+  <a href="#matrix" class="active">Matrix</a>
+  <a href="#calculator">Calculator</a>
+  <a href="#partners">Partners</a>
+</div>
+
+
+<div class="tabbar">
+  <a href="#matrix" class="active">Matrix</a>
+  <a href="#calculator">Calculator</a>
+  <a href="#partners">Partners</a>
+</div>
+
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>FUNDINGGAUG<span class="bars">≡</span>™</h1>
+    <p class="hero-subtitle">AI-Powered Fundability Intelligence Engine</p>
+    <span class="ignition-text">START</span>
+      </button>
+      <p style="color:rgba(255,255,255,.72);font-size:1.05rem">Tap to begin your AI-powered fundability assessment</p>
+    </div>
+  </div>
+</section>
+
+<section class="metrics" id="metrics"><div class="metrics-grid">
+  <div class="metric-card"><div class="metric-number">3.2X</div><div class="metric-label">Higher Conversion</div></div>
+  <div class="metric-card"><div class="metric-number">47 SEC</div><div class="metric-label">To Fundability</div></div>
+  <div class="metric-card"><div class="metric-number">$142K</div><div class="metric-label">Avg Partner Revenue</div></div>
+  <div class="metric-card"><div class="metric-number">500+</div><div class="metric-label">Connected Lenders</div></div>
+</div></section>
+
+<section class="video-section"><div class="video-container">
+  <h2 class="section-title">FUNDINGGAUG<span class="accent">≡</span>™ IN ACTION</h2>
+  <div class="video-player"><div class="video-placeholder" id="playVid">
+    <div class="play-button"><i class="fas fa-play"></i></div>
+  </div></div>
+</div></section>
+
+<section id="matrix" class="section-wrap anchor-offset">
+  <h2 class="section-title">Funding Matrix</h2>
+  <div class="matrix-grid">
+    <div class="card"><div class="h">Credit Tier</div><div class="v">A- / B+</div></div>
+    <div class="card"><div class="h">Utilization</div><div class="v">18%</div></div>
+    <div class="card"><div class="h">Inquiries (90d)</div><div class="v">2</div></div>
+    <div class="card"><div class="h">Debt-to-Income</div><div class="v">32%</div></div>
+    <div class="card"><div class="h">Time in Biz</div><div class="v">0–12m</div></div>
+    <div class="card"><div class="h">Stack Potential</div><div class="v">k–k</div></div>
+  </div>
+</section>
+
+<section class="gauge-section anchor-offset" id="calculator"><div class="gauge-wrapper">
+  <h2 class="section-title">Check Your Fundability</h2>
+<div class="lambo-gauge"><div class="gauge-outer" style="--gauge-value:0deg;"><div class="gauge-inner"><div class="gauge-score" id="gaugeScore">0</div><div class="gauge-label">GAUG≡™ Score</div></div></div></div>
+  <div class="lambo-gauge"><div class="gauge-outer" id="gauge"><div class="gauge-inner">
+    <div class="gauge-score" id="gaugeScore">0</div><div class="gauge-label">GAUG≡™ Score</div>
+  </div></div></div>
+
+  <form class="calculator-form" id="fundingForm">
+    <h3 class="form-title">Fundability Assessment</h3>
+    <div class="form-group"><label for="entityType">Entity Type</label>
+      <select class="form-control" id="entityType" required>
+        <option value="">Select Entity Type</option><option value="personal">Personal</option><option value="llc">LLC</option><option value="corp">Corporation</option><option value="partnership">Partnership</option>
+      </select></div>
+    <div class="form-group"><label for="creditScore">Credit Score Range</label>
+      <select class="form-control" id="creditScore" required>
+        <option value="">Select Score Range</option><option value="800">800+ Excellent</option><option value="750">750-799 Very Good</option><option value="700">700-749 Good</option><option value="650">650-699 Fair</option><option value="600">600-649 Poor</option><option value="550">Below 600</option>
+      </select></div>
+    <div class="form-group" id="businessFields" style="display:none">
+      <label for="timeInBusiness">Time in Business</label>
+      <select class="form-control" id="timeInBusiness">
+        <option value="">Select Duration</option><option value="5">5+ Years</option><option value="3">3-5 Years</option><option value="2">2-3 Years</option><option value="1">1-2 Years</option><option value="0.5">6-12 Months</option><option value="0">Pre-Revenue</option>
+      </select></div>
+    <div class="form-group"><label for="fundingAmount">Funding Amount Needed</label>
+      <input type="number" class="form-control" id="fundingAmount" placeholder="Enter amount" min="5000" max="5000000" required></div>
+    <button type="submit" class="form-submit">Analyze Fundability</button>
+  </form>
+</div></section>
+
+<section class="partners" id="partners">
+  <h2 class="section-title">Partner Revenue Network</h2>
+  <div class="partners-grid">
+    <div class="partner-card"><div class="partner-logo"><i class="fas fa-rocket"></i></div><h3 class="partner-name">FranchiseGator</h3><div class="partner-revenue">$285K/mo</div></div>
+    <div class="partner-card"><div class="partner-logo"><i class="fas fa-chart-line"></i></div><h3 class="partner-name">BizBuySell</h3><div class="partner-revenue">$195K/mo</div></div>
+    <div class="partner-card"><div class="partner-logo"><i class="fas fa-building"></i></div><h3 class="partner-name">LoopNet</h3><div class="partner-revenue">$225K/mo</div></div>
+    <div class="partner-card"><div class="partner-logo"><i class="fas fa-briefcase"></i></div><h3 class="partner-name">Franchise Direct</h3><div class="partner-revenue">$175K/mo</div></div>
+  </div>
+</section>
+
+<section class="final-cta"><div class="cta-content">
+  <h2 class="cta-title">Ready to Accelerate Your Funding?</h2>
+  <p class="cta-description">Join thousands using our AI platform. Instant access to 500+ lenders and personalized strategies.</p>
+  <div class="cta-buttons">
+    <a href="#calculator" class="btn-primary">Get Started Now</a>
+    <a href="/partner" class="btn-secondary">Become a Partner</a>
+  </div>
+</div></section>
+
+<footer><div class="footer-content">
+  <div class="footer-logo">FUNDINGGAUG<span class="accent">≡</span>™</div>
+  <ul class="footer-links"><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li><li><a href="/api">API</a></li><li><a href="/support">Support</a></li></ul>
+</div></footer>
+
+<script>
+const btn=document.getElementById('startButton');
+btn.addEventListener('click',()=>{
+  btn.classList.add('activated');
+  if(navigator.vibrate) navigator.vibrate(50);
+  setTimeout(()=>{ document.getElementById('calculator').scrollIntoView({behavior:'smooth',block:'center'}) ; btn.classList.remove('activated') },600);
+});
+
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const b=document.body; b.dataset.theme = b.dataset.theme==="green" ? "blue" : "green";
+  document.getElementById('themeBtn').textContent = "Mode: " + (b.dataset.theme==="green"?"Blue":"Green");
+});
+
+function animateGauge(score){
+  const max=270, deg=(score/1000)*max, g=document.getElementById('gauge'), s=document.getElementById('gaugeScore');
+  g.style.setProperty('--gauge', `${deg}deg`);
+  let cur=0, inc=score/50;
+  const t=setInterval(()=>{ cur+=inc; if(cur>=score){cur=score; clearInterval(t)} s.textContent=Math.round(cur) },20);
+}
+document.getElementById('entityType').addEventListener('change',function(){
+  document.getElementById('businessFields').style.display = this.value!=='personal' ? 'block' : 'none';
+});
+document.getElementById('fundingForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const entity=document.getElementById('entityType').value;
+  const cs=parseInt(document.getElementById('creditScore').value)||600;
+  const amt=document.getElementById('fundingAmount').value;
+  let base=cs;
+  if(entity!=='personal'){ const tib=parseFloat(document.getElementById('timeInBusiness').value||0); base+=tib*50 }
+  const finalScore=Math.min(base,850);
+  animateGauge(finalScore);
+  setTimeout(()=>{ alert(`GAUG≡ Score: ${finalScore}\\nEstimated Funding: $${parseInt(amt).toLocaleString()}`) },1600);
+});
+document.getElementById('playVid').addEventListener('click',()=>alert('Embed video here'));
+window.addEventListener('load',()=>{ setTimeout(()=>animateGauge(850),1000) });
+</script>
+<script>window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('calculator')?.scrollIntoView({behavior:'smooth',block:'start'});},300);});</script>
+<script>window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('calculator')?.scrollIntoView({behavior:'smooth',block:'start'});},300);});</script>
+<script src='/js/main.js' defer></script>
+  <script src="/js/site-tabs.js" defer></script>
+  <script src="/js/stars.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/ignite.v2.js" defer></script>
+  <script src="/js/site-tabs.js" defer></script>
+  <script src="/js/theme-toggle.js" defer></script>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/frank.js" defer></script>
+</body></html>
+<!-- GAUGE BLOCKS -->
+<div style="display:grid;gap:28px;place-items:center;margin:36px 0;">
+  <div class="gauge" data-fill="67">
+    <div class="gauge-core">
+      <div class="gauge-value">0</div>
+      <div class="gauge-label">GAUG≡™ SCORE</div>
+    </div>
+  </div>
+  <div class="gauge" data-fill="42">
+    <div class="gauge-core">
+      <div class="gauge-value">0</div>
+      <div class="gauge-label">GAUG≡™ SCORE</div>
+    </div>
+  </div>
+</div>
+<button id="start" class="mode-pill" style="left:18px;right:auto;">START</button>

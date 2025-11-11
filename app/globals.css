@@ -1,0 +1,14 @@
+:root {
+  --fg-bg: #0a0a0a;
+  --fg-text: #e6f8f0;
+  --fg-accent: #28f0a0;
+  --fg-accent-soft: rgba(40,240,160,0.25);
+  color-scheme: dark;
+}
+.theme-blue {
+  --fg-accent: #22d3ee;
+  --fg-accent-soft: rgba(34,211,238,0.25);
+}
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background: var(--fg-bg); color: var(--fg-text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+a { color: var(--fg-accent); text-decoration: none; }

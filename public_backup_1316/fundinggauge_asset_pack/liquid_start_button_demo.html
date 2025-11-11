@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FundingGauge – Liquid Glass Start Button</title>
+<style>
+:root{--neon:#00ff99;--border:rgba(255,255,255,.08)}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#000;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto}
+.fg-start-button{--rev:0;width:160px;height:160px;border:0;border-radius:50%;position:relative;cursor:pointer;background:transparent;outline:0;
+filter:drop-shadow(0 12px 40px rgba(0,0,0,.6));-webkit-tap-highlight-color:transparent;user-select:none}
+.layer{position:absolute;inset:0;border-radius:50%}
+.glass{background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.08) 0%,transparent 50%),linear-gradient(135deg,rgba(22,22,22,.95),rgba(5,5,5,.98));
+backdrop-filter:blur(12px) saturate(160%);border:1px solid var(--border)}
+.chrome{inset:10px;background:conic-gradient(from 0deg,#4a4a4a,#8a8a8a,#cfcfcf,#8a8a8a,#3a3a3a,#2a2a2a,#4a4a4a);opacity:.25;animation:spin 16s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.revGlow{inset:-14px;background:radial-gradient(circle, rgba(0,255,153, calc(var(--rev)/100*.7)) 0%, transparent 70%);filter:blur(22px);pointer-events:none;opacity:.9}
+.pulse{inset:-4px;border:2px solid var(--neon);opacity:0;animation:pulse 1.2s ease-out infinite;border-radius:50%}
+@keyframes pulse{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.45)}}
+.txt{position:relative;z-index:2;display:grid;place-items:center;height:100%;font-weight:900;letter-spacing:.35rem;color:#fff;
+text-shadow:0 0 36px rgba(0,255,153,.9)}
+.tach{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);width:70px;height:8px;border-radius:4px;overflow:hidden;background:rgba(0,0,0,.6)}
+.needle{height:100%;width:calc(var(--rev)*1%);background:linear-gradient(90deg, var(--neon) 0%, var(--neon) 75%, #ff3b3b 100%);box-shadow:0 0 12px var(--neon)}
+.fg-start-button.revving{animation:vibe .1s infinite}
+@keyframes vibe{0%,100%{transform:translateX(0)}50%{transform:translateX(-1px)}}
+</style></head>
+<body>
+<button id="fgStart" class="fg-start-button" aria-label="Start">
+  <span class="layer revGlow"></span>
+  <span class="layer glass"></span>
+  <span class="layer chrome"></span>
+  <span class="layer pulse"></span>
+  <span class="txt">START</span>
+  <span class="tach"><span class="needle"></span></span>
+</button>
+<script>
+(function(){
+  const btn=document.getElementById('fgStart'); let rev=0, timer=null, ctx=null;
+  function setRev(v){rev=Math.max(0,Math.min(100,v));btn.style.setProperty('--rev',rev);}
+  function sound(i){try{if(!window.AudioContext&&!window.webkitAudioContext)return;
+    if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();
+    if(ctx.state==='suspended')ctx.resume();
+    const o=ctx.createOscillator(),g=ctx.createGain(),f=ctx.createBiquadFilter();
+    o.type='sawtooth'; o.frequency.setValueAtTime(120+i*3,ctx.currentTime);
+    f.type='lowpass'; f.frequency.setValueAtTime(800+i*20,ctx.currentTime); f.Q.setValueAtTime(1,ctx.currentTime);
+    g.gain.setValueAtTime(0,ctx.currentTime);
+    g.gain.linearRampToValueAtTime(0.05+i/1000,ctx.currentTime+.01);
+    g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+.2);
+    o.connect(f); f.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime+.2);
+  }catch(e){{}}}
+  function down(e){e.preventDefault(); if(timer)return; btn.classList.add('revving'); setRev(20); sound(20);
+    timer=setInterval(()=>{setRev(Math.min(100,rev+10)); sound(rev); if(navigator.vibrate&&rev%30===0) navigator.vibrate(40);},100);}
+  function up(e){e.preventDefault(); if(!timer)return; clearInterval(timer); timer=null; setRev(100); sound(100);
+    if(navigator.vibrate) navigator.vibrate([50,30,100]);
+    setTimeout(()=>{ console.log('▶ FundingGauge start fired'); /* call your startSequence() here */ },150);
+    setTimeout(()=>{ btn.classList.remove('revving'); setRev(0); },600);}
+  function cancel(){ if(timer){clearInterval(timer); timer=null;} btn.classList.remove('revving'); setRev(0);}
+  btn.addEventListener('mousedown',down); btn.addEventListener('touchstart',down,{passive:false});
+  btn.addEventListener('mouseup',up); btn.addEventListener('touchend',up,{passive:false});
+  btn.addEventListener('mouseleave',cancel); btn.addEventListener('touchcancel',cancel);
+  btn.addEventListener('keydown',e=>{ if(e.key===' '||e.key==='Enter') down(e); });
+  btn.addEventListener('keyup',e=>{ if(e.key===' '||e.key==='Enter') up(e); });
+})();
+</script>
+</body></html>

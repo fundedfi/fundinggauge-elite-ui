@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FUNDINGGAUGE™ – Teaser</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--neon:#00ff99;--bg:#000;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#fff;font-family:'Rajdhani',system-ui,sans-serif;overflow:hidden}
+.wrap{position:fixed;inset:0;display:grid;place-items:center}
+.start{width:170px;height:170px;border-radius:50%;position:relative;cursor:pointer;display:grid;place-items:center;
+background:radial-gradient(circle at 35% 35%,#2a2a2a 0%,#111 60%,#000 100%);
+border:2px solid var(--neon);box-shadow:0 0 40px rgba(0,255,153,.35), inset 0 0 40px rgba(0,255,153,.15);
+transition:.25s ease;user-select:none;-webkit-tap-highlight-color:transparent}
+.start:hover{transform:scale(1.05);box-shadow:0 0 90px rgba(0,255,153,.7), inset 0 0 60px rgba(0,255,153,.25)}
+.pulse{position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--neon);opacity:0;animation:pulse 2s infinite}
+@keyframes pulse{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.6)}}
+.txt{font-family:'Orbitron',monospace;letter-spacing:.3rem;color:var(--neon);font-weight:900}
+.flash{position:fixed;inset:0;background:radial-gradient(circle,rgba(0,255,153,.85),transparent 60%);
+mix-blend-mode:screen;opacity:0;pointer-events:none}
+.flash.show{animation:flash .5s ease}
+@keyframes flash{0%{opacity:0}40%{opacity:1}100%{opacity:0}}
+.logoStage{position:fixed;inset:0;display:grid;place-items:center;background:#000;opacity:0;pointer-events:none}
+.logoStage.show{opacity:1;pointer-events:auto;transition:opacity .6s ease}
+.logo{width:min(40vw,420px);filter:drop-shadow(0 0 60px rgba(0,255,153,.8));transform:scale(.9);opacity:0}
+.logo.reveal{animation:reveal .9s cubic-bezier(.68,-.55,.27,1.55) forwards}
+@keyframes reveal{to{opacity:1;transform:scale(1)}}
+.tag{position:fixed;bottom:8vh;width:100%;text-align:center;font-family:'Orbitron';letter-spacing:.4rem;opacity:0}
+.tag.show{animation:fadeUp .7s .4s forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(-6px)}}
+</style></head>
+<body>
+<div class="wrap">
+  <button id="ignite" class="start" aria-label="Start"><span class="pulse"></span><span class="txt">START</span></button>
+</div>
+<div id="flash" class="flash"></div>
+<section id="logoStage" class="logoStage" aria-hidden="true">
+  <img src="assets/GAUG=TM_LOGO.png" alt="FUNDINGGAUGE" class="logo" id="logo"/>
+  <div class="tag" id="tag">FUNDABILITY&nbsp;INTELLIGENCE&nbsp;HAS&nbsp;ARRIVED</div>
+</section>
+<script>
+const btn=document.getElementById('ignite');const flash=document.getElementById('flash');const stage=document.getElementById('logoStage');const logo=document.getElementById('logo');const tag=document.getElementById('tag');
+function greenFlash(){flash.classList.remove('show');void flash.offsetWidth;flash.classList.add('show');}
+function reveal(){stage.classList.add('show');requestAnimationFrame(()=>{logo.classList.add('reveal');tag.classList.add('show');});}
+function start(){greenFlash();setTimeout(reveal,350);}
+btn.addEventListener('click',start);document.addEventListener('keydown',e=>{if(e.code==='Space'||e.key==='Enter')start();});
+</script>
+</body></html>

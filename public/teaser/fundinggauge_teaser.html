@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNDINGGAUG≡™ - Precision Funding at Velocity</title>
+    <meta name="description" content="Experience fundability intelligence with FUNDINGGAUG≡™. AI-powered scoring, instant pre-qualification, and 500+ lender connections.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-green: #00ff99;
+            --neon-green-dark: #00cc7a;
+            --carbon-black: #050505;
+            --deep-black: #000000;
+            --matte-black: #0f0f0f;
+            --chrome: linear-gradient(135deg, #e8e8e8 0%, #a8a8a8 50%, #e8e8e8 100%);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(0, 255, 153, 0.2);
+            --red-danger: #ff0040;
+            --amber-warning: #ffaa00;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--deep-black);
+            font-family: 'Rajdhani', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Carbon Fiber Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.01) 2px, rgba(255,255,255,.01) 4px),
+                repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,.008) 2px, rgba(255,255,255,.008) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 1rem;
+        }
+        
+        .logo-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--neon-green);
+            text-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Dashboard */
+        .dashboard {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+            padding-top: 80px;
+            background: radial-gradient(ellipse at center, rgba(0, 255, 153, 0.1) 0%, transparent 70%);
+        }
+        
+        /* Lamborghini Headlights Effect */
+        .headlight-left, .headlight-right {
+            position: fixed;
+            width: 400px;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 100%);
+            filter: blur(2px);
+            z-index: 2;
+            animation: headlightPulse 4s ease-in-out infinite;
+        }
+        
+        .headlight-left {
+            top: 30%;
+            left: -200px;
+            transform: rotate(-10deg);
+        }
+        
+        .headlight-right {
+            top: 30%;
+            right: -200px;
+            transform: rotate(10deg);
+        }
+        
+        @keyframes headlightPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Dashboard Container */
+        .dashboard-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            z-index: 20;
+        }
+        
+        /* Main Title */
+        .dashboard-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            background: var(--chrome);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.6)); }
+        }
+        
+        /* Speedometer Gauge */
+        .speedometer-container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 3rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .speedometer {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+            background: 
+                radial-gradient(circle at center, var(--matte-black) 30%, var(--carbon-black) 70%),
+                conic-gradient(from 135deg, var(--red-danger) 0deg, var(--amber-warning) 90deg, var(--neon-green) 180deg, var(--neon-green) 225deg);
+            padding: 20px;
+            box-shadow: 
+                0 0 50px rgba(0, 255, 153, 0.4),
+                inset 0 0 100px rgba(0, 0, 0, 0.8);
+        }
+        
+        .speedometer-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, var(--carbon-black) 0%, var(--deep-black) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Gauge Marks */
+        .gauge-marks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        
+        .mark {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            transform-origin: center 290px;
+        }
+        
+        .mark.major {
+            width: 4px;
+            height: 40px;
+            top: 10px;
+            left: calc(50% - 2px);
+            background: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+        
+        .mark.minor {
+            width: 2px;
+            height: 20px;
+            top: 20px;
+            left: calc(50% - 1px);
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* Needle */
+        .needle {
+            position: absolute;
+            width: 6px;
+            height: 250px;
+            background: linear-gradient(to top, var(--red-danger) 0%, #ff6b6b  50%, #ffffff  100%);
+            transform-origin: center bottom;
+            transform: translateX(-50%) rotate(-135deg);
+            left: 50%;
+            bottom: 50%;
+            border-radius: 3px;
+            box-shadow: 0 0 20px var(--red-danger);
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 10;
+        }
+        
+        .needle::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--chrome);
+            border-radius: 50%;
+            border: 3px solid var(--neon-green);
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.8);
+        }
+        
+        /* Digital Display */
+        .digital-display {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid var(--neon-green);
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .score-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+        
+        /* IGNITE Button */
+        .ignite-button {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 3rem auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .ignite-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .button-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--neon-green);
+            background: var(--chrome);
+            box-shadow: 
+                0 0 40px rgba(0, 255, 153, 0.6),
+                inset 0 0 40px rgba(0, 0, 0, 0.3);
+            animation: buttonBreathe 2s ease-in-out infinite;
+        }
+        
+        @keyframes buttonBreathe {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 40px rgba(0, 255, 153, 0.6),
+                    inset 0 0 40px rgba(0, 0, 0, 0.3);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 80px rgba(0, 255, 153, 1),
+                    inset 0 0 40px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        .button-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--deep-black);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* HUD Overlays */
+        .hud-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 15;
+        }
+        
+        .target-lock {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid var(--neon-green);
+            opacity: 0;
+            animation: targetLock 3s ease-in-out infinite;
+        }
+        
+        .target-lock:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+        .target-lock:nth-child(2) { top: 60%; right: 20%; animation-delay: 1s; }
+        .target-lock:nth-child(3) { bottom: 30%; left: 25%; animation-delay: 2s; }
+        
+        @keyframes targetLock {
+            0%, 80%, 100% { opacity: 0; transform: scale(1); }
+            10%, 70% { opacity: 0.8; transform: scale(1.1); }
+        }
+        
+        .target-lock::before,
+        .target-lock::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--neon-green);
+        }
+        
+        .target-lock::before {
+            top: -2px;
+            left: -2px;
+            border-bottom: none;
+            border-right: none;
+        }
+        
+        .target-lock::after {
+            bottom: -2px;
+            right: -2px;
+            border-top: none;
+            border-left: none;
+        }
+        
+        /* Stats HUD */
+        .stats-hud {
+            position: fixed;
+            top: 120px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            z-index: 100;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .stat-value {
+            color: var(--neon-green);
+            font-weight: 700;
+        }
+        
+        /* Engine Sound Visualization */
+        .sound-bars {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            align-items: end;
+            gap: 4px;
+            height: 60px;
+            z-index: 100;
+        }
+        
+        .sound-bar {
+            width: 8px;
+            background: var(--neon-green);
+            border-radius: 4px 4px 0 0;
+            animation: soundPulse 0.5s ease-in-out infinite alternate;
+        }
+        
+        .sound-bar:nth-child(1) { height: 20%; animation-delay: 0s; }
+        .sound-bar:nth-child(2) { height: 40%; animation-delay: 0.1s; }
+        .sound-bar:nth-child(3) { height: 60%; animation-delay: 0.2s; }
+        .sound-bar:nth-child(4) { height: 80%; animation-delay: 0.3s; }
+        .sound-bar:nth-child(5) { height: 100%; animation-delay: 0.4s; }
+        .sound-bar:nth-child(6) { height: 70%; animation-delay: 0.5s; }
+        .sound-bar:nth-child(7) { height: 30%; animation-delay: 0.6s; }
+        
+        @keyframes soundPulse {
+            from { opacity: 0.4; transform: scaleY(0.8); }
+            to { opacity: 1; transform: scaleY(1.2); }
+        }
+        
+        /* Form Section */
+        .form-section {
+            background: var(--matte-black);
+            padding: 5rem 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .form-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--neon-green);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+        
+        .funding-form {
+            background: var(--glass);
+            border: 2px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .form-group {
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--neon-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
+        }
+        
+        .submit-button {
+            background: var(--neon-green);
+            color: var(--deep-black);
+            padding: 1.5rem 4rem;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 255, 153, 0.5);
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 40px rgba(0, 255, 153, 0.8);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .dashboard-title {
+                font-size: 2.5rem;
+            }
+            
+            .speedometer-container {
+                width: 400px;
+                height: 400px;
+            }
+            
+            .stats-hud {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 2rem auto;
+                max-width: 300px;
+            }
+            
+            .sound-bars {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin: 2rem auto;
+                justify-content: center;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading States */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .pulse {
+            animation: pulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Lamborghini Headlight Effects -->
+    <div class="headlight-left"></div>
+    <div class="headlight-right"></div>
+    
+    <!-- HUD Overlays -->
+    <div class="hud-overlay">
+        <div class="target-lock"></div>
+        <div class="target-lock"></div>
+        <div class="target-lock"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <div class="logo-text">
+                    <span>FUNDINGGAUG</span><span>≡</span><span>™</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#dashboard">DASHBOARD</a></li>
+                <li><a href="#calculator">CALCULATOR</a></li>
+                <li><a href="/partner">PARTNERS</a></li>
+                <li><a href="#ai-advisor">AI ADVISOR</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Stats HUD -->
+    <div class="stats-hud">
+        <div class="stat-item">
+            <span>SYSTEM STATUS:</span>
+            <span class="stat-value">ONLINE</span>
+        </div>
+        <div class="stat-item">
+            <span>LENDERS:</span>
+            <span class="stat-value">500+</span>
+        </div>
+        <div class="stat-item">
+            <span>ACCURACY:</span>
+            <span class="stat-value">94%</span>
+        </div>
+        <div class="stat-item">
+            <span>AVG ANALYSIS:</span>
+            <span class="stat-value">47s</span>
+        </div>
+    </div>
+    
+    <!-- Sound Visualization -->
+    <div class="sound-bars">
+        <div class="sound-bar"></div>
+        <div class="sound-bar"></div>
+        <div class="sound-bar"></div>
+        <div class="sound-bar"></div>
+        <div class="sound-bar"></div>
+        <div class="sound-bar"></div>
+        <div class="sound-bar"></div>
+    </div>
+    
+    <!-- Main Dashboard -->
+    <section class="dashboard" id="dashboard">
+        <div class="dashboard-container">
+            <h1 class="dashboard-title">FUNDABILITY INTELLIGENCE</h1>
+            
+            <!-- Speedometer Gauge -->
+            <div class="speedometer-container">
+                <div class="speedometer">
+                    <div class="speedometer-inner">
+                        <!-- Gauge Marks -->
+                        <div class="gauge-marks">
+                            <!-- Major marks at key positions -->
+                            <div class="mark major" style="transform: rotate(0deg);"></div>
+                            <div class="mark major" style="transform: rotate(45deg);"></div>
+                            <div class="mark major" style="transform: rotate(90deg);"></div>
+                            <div class="mark major" style="transform: rotate(135deg);"></div>
+                            <div class="mark major" style="transform: rotate(180deg);"></div>
+                            <div class="mark major" style="transform: rotate(225deg);"></div>
+                            <div class="mark major" style="transform: rotate(270deg);"></div>
+                            
+                            <!-- Minor marks -->
+                            <div class="mark minor" style="transform: rotate(22.5deg);"></div>
+                            <div class="mark minor" style="transform: rotate(67.5deg);"></div>
+                            <div class="mark minor" style="transform: rotate(112.5deg);"></div>
+                            <div class="mark minor" style="transform: rotate(157.5deg);"></div>
+                            <div class="mark minor" style="transform: rotate(202.5deg);"></div>
+                            <div class="mark minor" style="transform: rotate(247.5deg);"></div>
+                        </div>
+                        
+                        <!-- Needle -->
+                        <div class="needle" id="needle"></div>
+                        
+                        <!-- Digital Display -->
+                        <div class="digital-display">
+                            <div id="scoreValue">000</div>
+                            <div class="score-label">GAUG≡™ SCORE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IGNITE Button -->
+            <div class="ignite-button" id="igniteButton">
+                <div class="button-ring"></div>
+                <div class="button-text">IGNITE</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Funding Assessment Form -->
+    <section class="form-section" id="calculator">
+        <div class="form-container">
+            <h2 class="form-title">PRECISION PRE-QUALIFICATION</h2>
+            <form class="funding-form" id="fundingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="businessName">Business Name</label>
+                        <input type="text" id="businessName" name="businessName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Select Industry</option>
+                            <option value="retail">Retail</option>
+                            <option value="restaurant">Restaurant/Food Service</option>
+                            <option value="construction">Construction</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="professional">Professional Services</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="technology">Technology</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="revenue">Annual Revenue</label>
+                        <select id="revenue" name="revenue" required>
+                            <option value="">Select Revenue Range</option>
+                            <option value="0-100k">$0 - $100,000</option>
+                            <option value="100k-250k">$100,000 - $250,000</option>
+                            <option value="250k-500k">$250,000 - $500,000</option>
+                            <option value="500k-1m">$500,000 - $1,000,000</option>
+                            <option value="1m-5m">$1,000,000 - $5,000,000</option>
+                            <option value="5m+">$5,000,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeInBusiness">Time in Business</label>
+                        <select id="timeInBusiness" name="timeInBusiness" required>
+                            <option value="">Select Duration</option>
+                            <option value="0-6m">0-6 months</option>
+                            <option value="6m-1y">6 months - 1 year</option>
+                            <option value="1-2y">1-2 years</option>
+                            <option value="2-5y">2-5 years</option>
+                            <option value="5y+">5+ years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="creditScore">Personal Credit Score</label>
+                        <select id="creditScore" name="creditScore" required>
+                            <option value="">Select Score Range</option>
+                            <option value="300-579">300-579 (Poor)</option>
+                            <option value="580-669">580-669 (Fair)</option>
+                            <option value="670-739">670-739 (Good)</option>
+                            <option value="740-799">740-799 (Very Good)</option>
+                            <option value="800-850">800-850 (Exceptional)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fundingAmount">Funding Amount Needed</label>
+                        <select id="fundingAmount" name="fundingAmount" required>
+                            <option value="">Select Amount</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="50k-100k">$50,000 - $100,000</option>
+                            <option value="100k-250k">$100,000 - $250,000</option>
+                            <option value="250k-500k">$250,000 - $500,000</option>
+                            <option value="500k+">$500,000+</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="submit-button">LAUNCH ANALYSIS</button>
+            </form>
+        </div>
+    </section>
+    
+    <script>
+        // Engine Sound Simulation
+        class EngineSimulator {
+            constructor() {
+                this.context = null;
+                this.oscillator = null;
+                this.gainNode = null;
+                this.isRunning = false;
+                this.initAudio();
+            }
+            
+            initAudio() {
+                try {
+                    this.context = new (window.AudioContext || window.webkitAudioContext)();
+                } catch (e) {
+                    console.log('Web Audio API not supported');
+                }
+            }
+            
+            start() {
+                if (!this.context || this.isRunning) return;
+                
+                this.oscillator = this.context.createOscillator();
+                this.gainNode = this.context.createGain();
+                
+                this.oscillator.connect(this.gainNode);
+                this.gainNode.connect(this.context.destination);
+                
+                this.oscillator.frequency.setValueAtTime(80, this.context.currentTime);
+                this.gainNode.gain.setValueAtTime(0, this.context.currentTime);
+                
+                this.oscillator.start();
+                this.isRunning = true;
+            }
+            
+            revUp(targetRPM = 6000, duration = 3) {
+                if (!this.oscillator || !this.gainNode) return;
+                
+                const now = this.context.currentTime;
+                const baseFreq = 80;
+                const targetFreq = baseFreq + (targetRPM / 100);
+                
+                // Engine startup
+                this.gainNode.gain.setValueAtTime(0, now);
+                this.gainNode.gain.linearRampToValueAtTime(0.1, now + 0.2);
+                this.gainNode.gain.linearRampToValueAtTime(0.3, now + duration);
+                
+                // Frequency ramp
+                this.oscillator.frequency.setValueAtTime(baseFreq, now);
+                this.oscillator.frequency.exponentialRampToValueAtTime(targetFreq, now + duration);
+                
+                // Visual sync
+                this.syncVisuals(duration);
+            }
+            
+            syncVisuals(duration) {
+                const needle = document.getElementById('needle');
+                const scoreElement = document.getElementById('scoreValue');
+                const soundBars = document.querySelectorAll('.sound-bar');
+                
+                // Animate needle
+                setTimeout(() => {
+                    needle.style.transform = 'translateX(-50%) rotate(45deg)';
+                }, 100);
+                
+                // Animate score counter
+                this.animateScore(0, 850, duration * 1000);
+                
+                // Animate sound bars
+                soundBars.forEach((bar, index) => {
+                    setTimeout(() => {
+                        bar.style.animationDuration = '0.1s';
+                        bar.style.background = '#ff0040';
+                    }, index * 100);
+                });
+            }
+            
+            animateScore(start, end, duration) {
+                const scoreElement = document.getElementById('scoreValue');
+                const range = end - start;
+                const increment = range / (duration / 16);
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= end) {
+                        current = end;
+                        clearInterval(timer);
+                    }
+                    scoreElement.textContent = Math.round(current).toString().padStart(3, '0');
+                }, 16);
+            }
+            
+            stop() {
+                if (this.oscillator) {
+                    this.oscillator.stop();
+                    this.oscillator = null;
+                    this.gainNode = null;
+                    this.isRunning = false;
+                }
+            }
+        }
+        
+        // Initialize Engine Simulator
+        const engine = new EngineSimulator();
+        
+        // IGNITE Button Handler
+        document.getElementById('igniteButton').addEventListener('click', function() {
+            // Start audio context on user interaction
+            if (engine.context && engine.context.state === 'suspended') {
+                engine.context.resume();
+            }
+            
+            this.style.transform = 'scale(0.95)';
+            this.style.boxShadow = '0 0 100px rgba(0, 255, 153, 1)';
+            
+            setTimeout(() => {
+                this.style.transform = 'scale(1.05)';
+                engine.start();
+                engine.revUp(7000, 4);
+                
+                // Show form section
+                setTimeout(() => {
+                    document.getElementById('calculator').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 2000);
+            }, 150);
+            
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 0 40px rgba(0, 255, 153, 0.6)';
+            }, 300);
+        });
+        
+        // Form Handler
+        document.getElementById('fundingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate AI analysis
+            const button = this.querySelector('.submit-button');
+            button.textContent = 'ANALYZING...';
+            button.classList.add('pulse');
+            
+            // Calculate fundability score based on inputs
+            let score = 300; // Base score
+            
+            // Revenue scoring
+            const revenueScores = {
+                '0-100k': 0,
+                '100k-250k': 100,
+                '250k-500k': 200,
+                '500k-1m': 300,
+                '1m-5m': 400,
+                '5m+': 500
+            };
+            score += revenueScores[data.revenue] || 0;
+            
+            // Time in business scoring
+            const timeScores = {
+                '0-6m': 0,
+                '6m-1y': 50,
+                '1-2y': 100,
+                '2-5y': 150,
+                '5y+': 200
+            };
+            score += timeScores[data.timeInBusiness] || 0;
+            
+            // Credit score impact
+            const creditScores = {
+                '300-579': 0,
+                '580-669': 50,
+                '670-739': 100,
+                '740-799': 150,
+                '800-850': 200
+            };
+            score += creditScores[data.creditScore] || 0;
+            
+            setTimeout(() => {
+                button.textContent = 'ANALYSIS COMPLETE';
+                button.classList.remove('pulse');
+                
+                // Update gauge with calculated score
+                const needle = document.getElementById('needle');
+                const scoreElement = document.getElementById('scoreValue');
+                
+                // Calculate needle rotation based on score (300-1000 range)
+                const rotation = -135 + ((score - 300) / 700) * 270;
+                needle.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
+                
+                // Update score display
+                engine.animateScore(0, score, 2000);
+                
+                // Show results
+                setTimeout(() => {
+                    alert(`Your FUNDINGGAUG≡™ Score: ${score}\n\nBased on your profile, you qualify for multiple funding options. Our AI has identified ${Math.floor(Math.random() * 15) + 5} potential lenders.\n\nUpgrade to Premium for detailed insights and direct lender connections.`);
+                    
+                    button.textContent = 'LAUNCH ANALYSIS';
+                }, 2500);
+            }, 3000);
+        });
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(5, 5, 5, 0.98)';
+                navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+            } else {
+                navbar.style.background = 'rgba(5, 5, 5, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+        
+        // Initialize sound bars animation
+        const soundBars = document.querySelectorAll('.sound-bar');
+        setInterval(() => {
+            soundBars.forEach(bar => {
+                const height = Math.random() * 60 + 20;
+                bar.style.height = height + '%';
+            });
+        }, 200);
+    </script>
+</body>
+</html>
