@@ -101,6 +101,9 @@ background:linear-gradient(135deg,var(--chrome-light),#fff 50%,var(--chrome-dark
 .btn-secondary{background:transparent;border:2px solid var(--accent);color:var(--accent)}
 .btn-secondary:hover{background:var(--accent);color:#000;transform:translateY(-2px);box-shadow:0 10px 30px color-mix(in oklab,var(--accent) 45%, transparent)}
 
+.fg-primary-button{padding:18px 48px;background:var(--glass);border:2px solid var(--accent);border-radius:50px;font-family:'Orbitron',monospace;font-size:1.2rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:3px;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 0 30px color-mix(in oklab,var(--accent) 30%, transparent);backdrop-filter:blur(10px)}
+.fg-primary-button:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 0 50px color-mix(in oklab,var(--accent) 55%, transparent),0 0 80px color-mix(in oklab,var(--accent) 35%, transparent);background:color-mix(in oklab,var(--accent) 15%, transparent)}
+
 footer{padding:60px 0 40px;background:#000;border-top:1px solid color-mix(in oklab,var(--accent) 20%, transparent);position:relative;z-index:2}
 .footer-content{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:40px}
 .footer-logo{font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:900;background:linear-gradient(135deg,var(--chrome-light),#fff 50%,var(--chrome-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -118,13 +121,34 @@ footer{padding:60px 0 40px;background:#000;border-top:1px solid color-mix(in okl
 }
 .ignition-container{display:none!important}
 
-/* === BARS ANIM (blue) === */
-.logo .bars{color:#00E5FF;filter:drop-shadow(0 0 10px rgba(0,229,255,.65));text-shadow:0 0 10px rgba(0,229,255,.35),0 0 24px rgba(0,229,255,.35),0 0 52px rgba(0,229,255,.35);animation:bars-pulse 2.4s ease-in-out infinite}
- bars-pulse{0%,100%{text-shadow:0 0 8px rgba(0,229,255,.35),0 0 24px rgba(0,229,255,.35)}50%{text-shadow:0 0 14px rgba(0,229,255,.35),0 0 42px rgba(0,229,255,.35),0 0 80px rgba(0,229,255,.35)}}
+/* === BARS (cocaine white glow) === */
+.bars{color:#fff;filter:drop-shadow(0 0 12px rgba(255,255,255,.9));text-shadow:0 0 12px rgba(255,255,255,.8),0 0 28px rgba(255,255,255,.6),0 0 56px rgba(255,255,255,.4);animation:bars-pulse 2.4s ease-in-out infinite;display:inline-block;transform:skewX(4deg)}
+@keyframes bars-pulse{0%,100%{text-shadow:0 0 10px rgba(255,255,255,.7),0 0 26px rgba(255,255,255,.5)}50%{text-shadow:0 0 16px rgba(255,255,255,.9),0 0 44px rgba(255,255,255,.7),0 0 85px rgba(255,255,255,.5)}}
 
-/* === BARS ANIM (blue) === */
-.logo .bars{color:#00E5FF;filter:drop-shadow(0 0 10px rgba(0,229,255,.65));text-shadow:0 0 10px rgba(0,229,255,.35),0 0 24px rgba(0,229,255,.35),0 0 52px rgba(0,229,255,.35);animation:bars-pulse 2.4s ease-in-out infinite}
- bars-pulse{0%,100%{text-shadow:0 0 8px rgba(0,229,255,.35),0 0 24px rgba(0,229,255,.35)}50%{text-shadow:0 0 14px rgba(0,229,255,.35),0 0 42px rgba(0,229,255,.35),0 0 80px rgba(0,229,255,.35)}}
+/* === Hero wordmark skew === */
+.hero h1{transform:skewX(-4deg)}
+.hero h1 .bars{transform:skewX(4deg)}
+
+/* === TM smaller and tighter === */
+.tm{font-size:0.35em;vertical-align:super;margin-left:-0.15em;letter-spacing:-0.05em}
+
+/* === Funding Matrix 3x2 grid === */
+.matrix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto;padding:0 40px}
+.matrix-grid .card{background:color-mix(in oklab,var(--accent) 6%, transparent);border:1px solid color-mix(in oklab,var(--accent) 22%, transparent);border-radius:16px;padding:24px;text-align:center;transition:.3s}
+.matrix-grid .card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 10px 30px color-mix(in oklab,var(--accent) 25%, transparent)}
+.matrix-grid .card .h{font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.7);margin-bottom:8px}
+.matrix-grid .card .v{font-family:'Orbitron',monospace;font-size:1.8rem;font-weight:900;color:var(--accent)}
+
+/* === TOURING/TURBO mode toggle === */
+.theme-toggle{position:relative;padding:10px 18px;border-radius:6px;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);border:2px solid color-mix(in oklab,var(--accent) 40%, transparent);font-family:'Orbitron',monospace;font-size:0.75rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .3s}
+.theme-toggle::before{content:"";position:absolute;top:50%;left:8px;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.theme-toggle:hover{border-color:var(--accent);box-shadow:0 0 15px color-mix(in oklab,var(--accent) 35%, transparent)}
+body[data-theme="green"] .theme-toggle{--accent:#00ff99}
+body[data-theme="blue"] .theme-toggle{--accent:#4fc3f7}
+
+@media(max-width:768px){
+  .matrix-grid{grid-template-columns:repeat(2,1fr)}
+}
 </style>
   <link rel="stylesheet" href="/css/site-tabs.css">
   <link rel="stylesheet" href="/css/ignite.css">
@@ -139,15 +163,8 @@ footer{padding:60px 0 40px;background:#000;border-top:1px solid color-mix(in okl
     <li><a href="#home">Home</a></li><li><a href="#metrics">Metrics</a></li>
     <li><a href="#calculator">Calculator</a></li><li><a href="#partners">Partners</a></li><li><a href="#contact">Contact</a></li>
   </ul>
-  <button id="themeBtn" class="theme-toggle">Mode: Blue</button>
+  <button id="themeBtn" class="theme-toggle">TOURING</button>
 </div></nav>
-
-<div class="tabbar">
-  <a href="#matrix" class="active">Matrix</a>
-  <a href="#calculator">Calculator</a>
-  <a href="#partners">Partners</a>
-</div>
-
 
 <div class="tabbar">
   <a href="#matrix" class="active">Matrix</a>
@@ -159,13 +176,9 @@ footer{padding:60px 0 40px;background:#000;border-top:1px solid color-mix(in okl
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <h1>FUNDINGGAUG<span class="bars">≡</span>™</h1>
-<div id="hero-start"><button id="start">START</button></div>
+    <h1>FUNDINGGAUG<span class="bars">≡</span><span class="tm">™</span></h1>
     <p class="hero-subtitle">AI-Powered Fundability Intelligence Engine</p>
-    <span class="ignition-text">START</span>
-      </button>
-      <p style="color:rgba(255,255,255,.72);font-size:1.05rem">Tap to begin your AI-powered fundability assessment</p>
-    </div>
+    <button id="startButton" class="fg-primary-button">START ASSESSMENT</button>
   </div>
 </section>
 
@@ -248,16 +261,9 @@ footer{padding:60px 0 40px;background:#000;border-top:1px solid color-mix(in okl
 </div></footer>
 
 <script>
-const btn=document.getElementById('startButton');
-btn.addEventListener('click',()=>{
-  btn.classList.add('activated');
-  if(navigator.vibrate) navigator.vibrate(50);
-  setTimeout(()=>{ document.getElementById('calculator').scrollIntoView({behavior:'smooth',block:'center'}) ; btn.classList.remove('activated') },600);
-});
-
 document.getElementById('themeBtn').addEventListener('click',()=>{
   const b=document.body; b.dataset.theme = b.dataset.theme==="green" ? "blue" : "green";
-  document.getElementById('themeBtn').textContent = "Mode: " + (b.dataset.theme==="green"?"Blue":"Green");
+  document.getElementById('themeBtn').textContent = b.dataset.theme==="green" ? "TOURING" : "TURBO";
 });
 
 function animateGauge(score){
@@ -283,32 +289,39 @@ document.getElementById('fundingForm').addEventListener('submit',e=>{
 document.getElementById('playVid').addEventListener('click',()=>alert('Embed video here'));
 window.addEventListener('load',()=>{ setTimeout(()=>animateGauge(850),1000) });
 </script>
-<script>window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('calculator')?.scrollIntoView({behavior:'smooth',block:'start'});},300);});</script>
-<script>window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('calculator')?.scrollIntoView({behavior:'smooth',block:'start'});},300);});</script>
 <script src='/js/main.js' defer></script>
-  <script src="/js/site-tabs.js" defer></script>
-  <script src="/js/stars.js" defer></script>
-  <script src="/js/theme-toggle.js" defer></script>
-  <script src="/js/ignite.v2.js" defer></script>
-  <script src="/js/site-tabs.js" defer></script>
-  <script src="/js/theme-toggle.js" defer></script>
-  <script src="/js/main.js" defer></script>
-  <script src="/js/frank.js" defer></script>
-  <script src="/js/frank-bubble.js" defer></script>
+<script src="/js/site-tabs.js" defer></script>
+<script src="/js/stars.js" defer></script>
+<script src="/js/theme-toggle.js" defer></script>
+<script src="/js/ignite.v2.js" defer></script>
+<script src="/js/frank.js" defer></script>
+<script src="/js/frank-bubble.js" defer></script>
+
+<script>
+(function() {
+  const BASE_ROUTE = 'https://fundedbiz.com/routeFunnel/77/startup';
+
+  function buildTargetUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const qs = new URLSearchParams();
+
+    qs.set('src', 'fundinggauge-site');
+
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(key => {
+      if (params.has(key)) qs.set(key, params.get(key));
+    });
+
+    const tag = params.get('tag');
+    const ref = params.get('ref');
+    if (tag) qs.set('tag', tag);
+    else if (ref) qs.set('ref', ref);
+
+    return BASE_ROUTE + '?' + qs.toString();
+  }
+
+  document.getElementById('startButton').addEventListener('click', () => {
+    window.location.href = buildTargetUrl();
+  });
+})();
+</script>
 </body></html>
-<!-- GAUGE BLOCKS -->
-<div style="display:grid;gap:28px;place-items:center;margin:36px 0;">
-  <div class="gauge" data-fill="67">
-    <div class="gauge-core">
-      <div class="gauge-value">0</div>
-      <div class="gauge-label">GAUG≡™ SCORE</div>
-    </div>
-  </div>
-  <div class="gauge" data-fill="42">
-    <div class="gauge-core">
-      <div class="gauge-value">0</div>
-      <div class="gauge-label">GAUG≡™ SCORE</div>
-    </div>
-  </div>
-</div>
-<button id="start" class="mode-pill" style="left:18px;right:auto;">START</button>
