@@ -17,7 +17,13 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-hidden" style={{
+      background: `
+        radial-gradient(circle at top center, rgba(0, 245, 255, 0.22), transparent 60%),
+        radial-gradient(circle at bottom center, rgba(57, 255, 150, 0.18), transparent 55%),
+        #020712
+      `
+    }}>
       <Starfield />
       <ThemeToggle />
 
@@ -29,8 +35,8 @@ export default function Page() {
           height={48}
           className="pointer-events-none select-none"
         />
-        <h1 className="text-4xl font-black tracking-[-0.15em] text-white drop-shadow-[0_0_24px_var(--fg-accent)]">
-          FUNDINGGAUGE™
+        <h1 className="fg-wordmark text-4xl font-black">
+          FUNDINGGAUG≡™
         </h1>
       </header>
 
@@ -46,7 +52,7 @@ export default function Page() {
         style={{ boxShadow: "0 0 28px rgba(0,0,0,.6), 0 0 40px var(--fg-accent)" }}
       >
         <h3 className="text-3xl font-semibold text-white drop-shadow-[0_0_16px_var(--fg-accent)] mb-4 tracking-wide">
-          FUNDINGGAUGE™ Advantage
+          <span className="fg-wordmark">FUNDINGGAUG≡™</span> Advantage
         </h3>
         <p className="text-neutral-300 mb-6">
           Fundability intelligence that actually moves the needle. Consistent green/blue accents via theme toggle.

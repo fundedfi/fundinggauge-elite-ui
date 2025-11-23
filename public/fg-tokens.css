@@ -1,0 +1,92 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   FundingGauge Global Token System
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Core Brand Colors ─── */
+  --fg-accent: #00ff99;
+  --fg-accent-alt: #4fc3f7;
+  --fg-accent-cyan: #00F5FF;
+  --fg-accent-emerald: #39FF96;
+
+  /* ─── Chrome/Metallic ─── */
+  --fg-chrome-light: #e8e8e8;
+  --fg-chrome-mid: #fff;
+  --fg-chrome-dark: #666;
+
+  /* ─── Backgrounds ─── */
+  --fg-deep: #000;
+  --fg-surface: #020712;
+  --fg-surface-alt: #050b12;
+  --fg-glass: rgba(255, 255, 255, 0.03);
+  --fg-glass-heavy: rgba(255, 255, 255, 0.05);
+
+  /* ─── Wordmark System ─── */
+  --fg-wordmark-core: #00F5FF;
+  --fg-wordmark-glow: rgba(0, 245, 255, 0.45);
+  --fg-wordmark-shadow: rgba(0, 0, 0, 0.85);
+
+  /* ─── Glow Effects ─── */
+  --fg-glow-accent: rgba(0, 255, 153, 0.7);
+  --fg-glow-accent-soft: rgba(0, 255, 153, 0.3);
+  --fg-glow-cyan: rgba(0, 245, 255, 0.45);
+  --fg-glow-emerald: rgba(57, 255, 150, 0.18);
+  --fg-glow-white: rgba(255, 255, 255, 0.5);
+
+  /* ─── Border Colors ─── */
+  --fg-border-accent: color-mix(in oklab, var(--fg-accent) 22%, transparent);
+  --fg-border-accent-strong: color-mix(in oklab, var(--fg-accent) 35%, transparent);
+  --fg-border-accent-weak: color-mix(in oklab, var(--fg-accent) 20%, transparent);
+
+  /* ─── Text Colors ─── */
+  --fg-text-primary: #fff;
+  --fg-text-secondary: rgba(255, 255, 255, 0.82);
+  --fg-text-muted: rgba(255, 255, 255, 0.72);
+  --fg-text-dim: rgba(255, 255, 255, 0.7);
+
+  /* ─── Gradients ─── */
+  --fg-gradient-chrome: linear-gradient(135deg, var(--fg-chrome-light), var(--fg-chrome-mid) 50%, var(--fg-chrome-dark));
+  --fg-gradient-accent: linear-gradient(135deg, var(--fg-accent), color-mix(in oklab, var(--fg-accent) 75%, #00cc7a));
+  --fg-gradient-hero: radial-gradient(circle at top center, rgba(0, 245, 255, 0.22), transparent 60%),
+                      radial-gradient(circle at bottom center, rgba(57, 255, 150, 0.18), transparent 55%),
+                      var(--fg-surface);
+
+  /* ─── Shadows ─── */
+  --fg-shadow-accent: 0 0 30px color-mix(in oklab, var(--fg-accent) 30%, transparent);
+  --fg-shadow-accent-strong: 0 0 50px color-mix(in oklab, var(--fg-accent) 55%, transparent);
+  --fg-shadow-accent-glow: 0 0 80px color-mix(in oklab, var(--fg-accent) 35%, transparent);
+
+  /* ─── Animation Timings ─── */
+  --fg-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --fg-ease-bounce: cubic-bezier(0.4, 0, 0.6, 1);
+
+  /* ─── Spacing ─── */
+  --fg-space-xs: 8px;
+  --fg-space-sm: 16px;
+  --fg-space-md: 24px;
+  --fg-space-lg: 40px;
+  --fg-space-xl: 60px;
+  --fg-space-2xl: 120px;
+
+  /* ─── Border Radius ─── */
+  --fg-radius-sm: 6px;
+  --fg-radius-md: 10px;
+  --fg-radius-lg: 16px;
+  --fg-radius-xl: 20px;
+  --fg-radius-pill: 50px;
+  --fg-radius-circle: 50%;
+
+  /* ─── Typography ─── */
+  --fg-font-display: 'Orbitron', monospace;
+  --fg-font-body: 'Rajdhani', sans-serif;
+  --fg-font-wordmark: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+/* ─── Theme Variations ─── */
+body[data-theme="green"] {
+  --fg-accent: #00ff99;
+}
+
+body[data-theme="blue"] {
+  --fg-accent: #4fc3f7;
+}

@@ -4,6 +4,23 @@
   --fg-accent: #28f0a0;
   --fg-accent-soft: rgba(40,240,160,0.25);
   color-scheme: dark;
+
+  /* FUNDINGGAUGE Wordmark Standard */
+  --fg-wordmark-core:   #00F5FF;
+  --fg-wordmark-glow:   rgba(0, 245, 255, 0.45);
+  --fg-wordmark-shadow: rgba(0, 0, 0, 0.85);
+}
+
+/* Reusable wordmark class */
+.fg-wordmark {
+  font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-wordmark-core);
+  text-shadow:
+    0 0 18px var(--fg-wordmark-glow),
+    0 0 42px var(--fg-wordmark-glow),
+    0 10px 40px var(--fg-wordmark-shadow);
 }
 .theme-blue {
   --fg-accent: #22d3ee;
