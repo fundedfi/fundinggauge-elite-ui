@@ -41,6 +41,68 @@
   border: 1px solid rgba(229, 228, 226, 0.15);
 }
 
+/* Cockpit Animations */
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes bolt-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes gauge-glow {
+  0%, 100% { filter: drop-shadow(0 0 12px var(--fg-accent)); }
+  50% { filter: drop-shadow(0 0 24px var(--fg-accent)); }
+}
+
+.animate-shimmer {
+  background-size: 200% 200%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-bolt-pulse {
+  animation: bolt-pulse 2s ease-in-out infinite;
+}
+
+.animate-gauge-glow {
+  animation: gauge-glow 2s ease-in-out infinite;
+}
+
+/* Range Slider Styling */
+.slider-champagne::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37, #ffbf00);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+.slider-champagne::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37, #ffbf00);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+  border: none;
+}
+
+.slider-champagne::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #040d1a 0%, #d4af37 100%);
+  height: 8px;
+  border-radius: 4px;
+}
+
+.slider-champagne::-moz-range-track {
+  background: linear-gradient(to right, #040d1a 0%, #d4af37 100%);
+  height: 8px;
+  border-radius: 4px;
+}
+
 * { box-sizing: border-box; }
 html, body { margin:0; padding:0; background: var(--fg-bg); color: var(--fg-text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
 a { color: var(--fg-accent); text-decoration: none; }
