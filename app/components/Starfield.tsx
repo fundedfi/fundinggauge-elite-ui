@@ -8,11 +8,17 @@ export default function Starfield() {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
     const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+
+    // Boost state
+    let speedMultiplier = 1;
+    let boostTimeout: number | null = null;
+
     function fit() {
       canvas.width = Math.floor(window.innerWidth * DPR);
       canvas.height = Math.floor(window.innerHeight * DPR);
       ctx.setTransform(DPR,0,0,DPR,0,0);
     }
+
     const STARCOUNT = Math.min(600, Math.floor(window.innerWidth * 0.6));
     let stars = Array.from({length: STARCOUNT}).map(() => ({
       x: Math.random()*window.innerWidth,
@@ -20,6 +26,24 @@ export default function Starfield() {
       z: Math.random()*1+0.2,
       tw: Math.random()*0.8+0.2
     }));
+
+    // Listen for boost events
+    function handleMessage(event: MessageEvent) {
+      if (event.data?.type === 'STARFIELD_BOOST') {
+        speedMultiplier = event.data.speed || 2.5;
+        if (boostTimeout) clearTimeout(boostTimeout);
+        boostTimeout = window.setTimeout(() => {
+          // Ease back to normal over ~500ms
+          const easeBack = () => {
+            speedMultiplier = Math.max(1, speedMultiplier - 0.05);
+            if (speedMultiplier > 1) requestAnimationFrame(easeBack);
+          };
+          easeBack();
+        }, 3000);
+      }
+    }
+    window.addEventListener('message', handleMessage);
+
     function draw(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
       ctx.fillStyle = "black";
@@ -50,7 +74,8 @@ export default function Starfield() {
         ctx.arc(s.x, s.y, size, 0, Math.PI*2);
         ctx.fill();
 
-        s.x += 0.02 + 0.08*s.z;
+        // Apply speed multiplier for boost effect
+        s.x += (0.02 + 0.08*s.z) * speedMultiplier;
         if (s.x > window.innerWidth+5) { s.x = -5; s.y = Math.random()*window.innerHeight; }
       }
       requestAnimationFrame(draw);
@@ -58,7 +83,11 @@ export default function Starfield() {
     function onResize(){ fit(); }
     fit(); requestAnimationFrame(draw);
     window.addEventListener('resize', onResize);
-    return () => { window.removeEventListener('resize', onResize); };
+    return () => {
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('message', handleMessage);
+      if (boostTimeout) clearTimeout(boostTimeout);
+    };
   }, [canvasRef]);
 
   return (
