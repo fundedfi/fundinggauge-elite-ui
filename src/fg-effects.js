@@ -1,6 +1,9 @@
 // FundingGauge effects: parallax, pulse glow, particles, liquid-glass Start
 import './fg-effects.css';
 
+// Guard against SSR - only run in browser
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+
 /* ---------- Parallax ---------- */
 const root = document.documentElement;
 function onMove(e) {
@@ -98,3 +101,5 @@ function ensureStartButton() {
   });
 }
 document.addEventListener('DOMContentLoaded', ensureStartButton);
+
+} // end browser guard

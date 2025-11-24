@@ -9,11 +9,16 @@ import ThemeToggle from "./components/ThemeToggle";
 export default function Page() {
   // --- FundingGauge Start button listener ---
   useEffect(() => {
-    document.addEventListener('fundinggauge:start', () => {
+    if (typeof window === 'undefined') return;
+
+    const handler = () => {
       console.log('FundingGauge Start button clicked');
       // Optional: redirect or trigger modal
       // window.location.href = '/run';
-    });
+    };
+
+    document.addEventListener('fundinggauge:start', handler);
+    return () => document.removeEventListener('fundinggauge:start', handler);
   }, []);
 
   return (

@@ -2,8 +2,9 @@
 import React, {useEffect, useRef} from "react";
 
 export default function Starfield() {
-  const canvasRef = useCallbackRef<HTMLCanvasElement>();
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
     const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
@@ -36,7 +37,7 @@ export default function Starfield() {
         const r = 0.6 + 0.6*Math.sin(t*2 + s.x*0.01 + s.y*0.01);
         const size = (0.6 + s.tw*r)*1.4;
         const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 3+6*s.z);
-        const acc = getComputedStyle(document.documentElement).getPropertyValue('--fg-accent').trim() || '#22d3ee';
+        const acc = '#22d3ee';
         glow.addColorStop(0, acc);
         glow.addColorStop(1, "rgba(0,0,0,0)");
         ctx.fillStyle = glow;
@@ -67,12 +68,4 @@ export default function Starfield() {
       aria-hidden="true"
     />
   );
-}
-
-function useCallbackRef<T extends HTMLElement>() {
-  const ref = useRef<T|null>(null);
-  const setRef = (el: T|null) => { ref.current = el; };
-  // @ts-ignore
-  ref.current = ref.current;
-  return { current: ref.current, get current(){return ref.current}, set current(v){ref.current=v}, };
 }
